@@ -1,0 +1,36 @@
+<template name="footer">
+	<div class="ui inverted vertical footer segment">
+		<div class="ui container">
+			<div class="ui stackable inverted divided equal height stackable grid">
+				<div class="three wide column">
+					<h4 class="ui inverted header">Nosotros</h4>
+					<div class="ui inverted link list">
+						<a href="{{pathFor 'scrow'}}}" class="item">Escrow</a>
+						<a href="{{pathFor 'billetera'}}" class="item">Wallet</a>
+						<a href="{{pathFor 'productosServicios'}}" class="item">Productos y Servicios</a>
+						<a href="{{pathFor 'proximasCharlas'}}" class="item">Próximas Charlas</a>
+						<a href="{{pathFor 'FAQ'}}" class="item">Preguntas frecuentes</a>
+					</div>
+				</div>
+				
+				<div class="three wide column">
+					<h4 class="ui inverted header">Entra a la plataforma</h4>
+					{{#if currentUser}}
+				
+					{{else}}					
+						<div class="ui inverted link list">
+							<a href="{{pathFor 'signIn'}}" class="item">Entrar</a>
+							<a href="{{pathFor 'signUp'}}" class="item">Registrarse</a>
+						</div>
+					{{/if}}
+				</div>
+
+				<div class="seven wide column">
+					<h4 class="ui inverted header">Nuestra Visión</h4>
+					<p>Bitven.org nace con la visión de educar, masificar y proporcionar la opciónes de compra/venta/ahorro/pagos en Bitcoin para todos en Venezuela.</p>
+					<div id="btc-quote"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

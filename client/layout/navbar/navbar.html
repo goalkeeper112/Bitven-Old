@@ -1,0 +1,67 @@
+<template name="navbar">
+	<div class="ui wide top inverted menu stackable equal width">
+  		<div class="ui container">
+		     	<a class="item" href="{{pathFor 'main'}}">
+		     		Inicio
+		     	</a>
+
+		     	<a class="item" href="{{pathFor 'surbitcoin'}}">		
+		     		<i class="bitcoin icon"></i>
+				  	BTC/VEF: {{surbitcoin.sell}}
+				</a>
+
+				<a class="item" href="{{pathFor 'foxbit'}}">
+				  	<i class="bitcoin icon"></i>
+				  	BTC/BRL: {{foxbit.sell}}
+				</a>
+
+				<a class="item" href="{{pathFor 'bitfinex'}}">
+				  	<i class="bitcoin icon"></i>
+				  	BTC/USD: {{bitfinex.ask}}
+				</a>
+
+				<a class="item" href="{{pathFor 'huobi'}}">
+				  	<i class="bitcoin icon"></i>
+				  	BTC/CNY: {{huobi.ticker.sell}}
+				</a>
+
+				<a class="item" href="#">
+				  	<i class="bitcoin icon"></i>
+				  	BTC/ARS: No disp.
+				</a>
+
+				<a class="item" href="{{pathFor 'blockchain'}}">
+					<i class="bitcoin icon"></i>
+					Volumen Total: {{blockchain.trade_volume_btc}}
+				</a>
+
+				<a class="item" onclick="$('#sidebar').sidebar('toggle')">
+					<i class="sidebar icon"></i>
+					Menú
+				</a>
+		    <!--<a class="active item" href="{{pathFor 'main'}}">Inicio</a>
+		    <a class="item" href="{{pathFor 'scrow'}}">Scrow</a>
+		    <a class="item" href="{{pathFor 'billetera'}}">Billetera</a>
+		    <a href="{{pathFor 'productosServicios'}}" class="item">Productos y Servicios</a>
+		    <a href="{{pathFor 'proximasCharlas'}}" class="item">Próximas Charlas</a>
+		    <a href="{{pathFor 'FAQ'}}" class="item">Preguntas Frecuentes</a>
+		    <div class="right menu">
+		    	{{#if currentUser}}
+					<div class="item">
+			        	<a class="ui button" href="{{pathFor 'dashboard'}}">{{currentUser.profile.username}}</a>
+			      	</div>
+		    	{{else}}
+			      <div class="item">
+			        <a class="ui button" href="/login">Entrar</a>
+			      </div>
+			      <div class="item">
+			        <a class="ui primary button" href="/register">Registrarse</a>
+			      </div>
+		      	{{/if}}
+		      	<div class="item">
+		      		<a id="mercados" class="ui primary button">Mercados</a>
+		      	</div>
+		    </div>-->
+	  </div>
+	</div>
+</template>

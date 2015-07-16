@@ -1,0 +1,111 @@
+<template name="precios">
+	<div class="ui top attached tabular menu">
+		{{#if VEF}}
+	  		<div class="ui active item button" id="VEF">VEF</div>
+	  	{{else}}
+  			<div class="ui item button" id="VEF">VEF</div>
+  		{{/if}}
+
+	  	{{#if BRL}}
+			<div class="ui active item button" id="BRL">BRL</div>
+		{{else}}
+			<div class="ui item button" id="BRL">BRL</div>
+		{{/if}}
+
+		{{#if USD}}
+			<div class="ui active item button" id="USD">USD</div>
+		{{else}}
+			<div class="ui item button" id="USD">USD</div>
+		{{/if}}
+
+		{{#if ARS}}
+			<div class="ui active item button" id="ARS">ARS</div>
+		{{else}}
+			<div class="ui item button" id="ARS">ARS</div>
+		{{/if}}
+	</div>
+
+	<div class="ui bottom attached active tab segment">
+	  <p>
+  		<div class="ui input">
+  			<input id="monto" placeholder="FIAT a BTC" type="number">
+  		</div>
+	  </p>
+	  <p>
+	  	<table class="ui celled table">
+			<thead>
+				<tr>
+					<th class="">Fuente</th>
+					<th class="">Valor</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#if VEF}}
+				<tr>
+					<td>Surbitcoin</td>
+					<td><p>{{surbitcoinConvert}}</p></td>
+				</tr>
+				<tr>
+					<td>Localbitcoin</td>
+					<td><p>{{localbitcoinConvert}}</p></td>
+				</tr>
+				<tr>
+					<td>Implícito</td>
+					<td><p>{{implicitoConvert}}</p></td>
+				</tr>
+				{{/if}}
+
+				{{#if BRL}}
+				<tr>
+					<td>Foxbit</td>
+					<td><p>{{foxbitConvert}}</p></td>
+				</tr>
+				<tr>
+					<td>Localbitcoin</td>
+					<td><p>{{localbitcoinBRLConvert}}</p></td>
+				</tr>
+				<tr>
+					<td>Implícito</td>
+					<td><p>{{implicitoBRLConvert}}</p></td>
+				</tr>
+				{{/if}}
+
+				{{#if USD}}
+				<tr>
+					<td>Bitfinex</td>
+					<td><p>{{bitfinexConvert}}</p></td>
+				</tr>
+				<tr>
+					<td>Localbitcoin</td>
+					<td><p>{{localbitcoinUSDConvert}}</p></td>
+				</tr>
+				<tr>
+					<td>Coinbase</td>
+					<td><p>{{coinbaseConvert}}</p></td>
+				</tr>
+				{{/if}}
+
+				{{#if ARS}}
+				<tr>
+					<td>SatoshiTango</td>
+					<td><p>{{satoshiTangoConvert}}</p></td>
+				</tr>
+				<tr>
+					<td>Localbitcoin</td>
+					<td><p>{{localbitcoinARSConvert}}</p></td>
+				</tr>
+				<tr>
+					<td>Implícito</td>
+					<td><p>{{implicitoARSonvert}}</p></td>
+				</tr>
+				{{/if}}
+			</tbody>
+		</table>
+	  </p>
+	  <p>
+  		<div class="ui input">
+  			<input id="montoBTC" placeholder="BTC a FIAT" type="number" step="0.000000001">
+  		</div>
+	  </p>
+	</div>
+</template>

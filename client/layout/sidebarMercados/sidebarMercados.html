@@ -1,0 +1,37 @@
+<template name="sidebarMercados">
+	<div id="sidebar" class="ui right vertical inverted labeled icon sidebar menu">	  
+	  	<a class="item" href="{{pathFor 'scrow'}}">
+	  		Escrow
+	  	</a>
+	    
+	    <a class="item" href="{{pathFor 'billetera'}}">
+	    	Billetera
+	    </a>
+	    
+	    <a href="{{pathFor 'productosServicios'}}" class="item">
+	    	Productos y Servicios
+	    </a>
+	    
+	    <a href="{{pathFor 'proximasCharlas'}}" class="item">
+	    	Próximas Charlas
+	    </a>
+	    
+	    <a href="{{pathFor 'FAQ'}}" class="item">
+	    	Preguntas Frecuentes
+	    </a>
+	    
+    	{{#if currentUser}}
+        	<a class="item" href="{{pathFor 'dashboard'}}">
+    			{{currentUser.profile.username}}
+        	</a>
+    	{{else}}
+	        <a class="item" href="/login">
+	        	Entrar
+	        </a>
+
+	        <a class="item" href="/register">
+	        	Registrarse
+	        </a>
+      	{{/if}}
+	</div>
+</template>

@@ -1,0 +1,49 @@
+<template name="blockchain">
+	<br>
+	<div class="ui container equal width">
+		<div class="ui segment pilled">
+			<div class="center aligned">
+				<h1 class="header">Estadísticas de la Blockchain</h1>
+			</div>
+			
+			<div class="ui divider"></div>
+
+			<p>
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>Indicador</th>
+							<th>Valor</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>BTC minados</td>
+							<td>{{blockchain.n_btc_mined}}</td>
+						</tr>
+						<tr>
+							<td>Número de Bloques Minados</td>
+							<td>{{blockchain.n_blocks_mined}}</td>
+						</tr>
+						<tr>
+							<td>Volumen de BTC en Trading</td>
+							<td>{{blockchain.trade_volume_btc}}</td>
+						</tr>
+						<tr>
+							<td>Dificultad</td>
+							<td>{{blockchain.difficulty}}</td>
+						</tr>
+						<tr>
+							<td>Tiempo del Ultimo Bloque minado</td>
+							<td>{{blockchain.minutes_between_blocks}}</td>
+						</tr>
+						<tr>
+							<td>Hash Rate de la Red</td>
+							<td>{{blockchain.hash_rate}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</p>
+		</div>
+	</div>
+</template>

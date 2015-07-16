@@ -1,0 +1,13 @@
+<template name="layout">
+	<div class="ui row"> 
+		{{>navbar}}
+	</div>
+
+	{{>sidebarMercados}}
+	
+	{{#momentum plugin='right-to-left' }}
+	{{> yield}}
+	{{/momentum}}
+
+	{{>footer}}
+</template>

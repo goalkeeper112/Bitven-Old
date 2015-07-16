@@ -1,0 +1,26 @@
+# Meteor packages used by this project, one per line.
+# Check this file (and the other files in this directory) into your repository.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+meteor-platform
+jquery
+http
+email
+semantic:ui
+flemay:less-autoprefixer
+aldeed:collection2
+aldeed:simple-schema
+iron:router
+react
+jsx
+accounts-base
+accounts-password
+percolate:momentum-iron-router
+jhuenges:highstock
+manuel:viewmodel
+summernote:summernote
+matteodem:server-session
+useraccounts:semantic-ui
+accounts-ui

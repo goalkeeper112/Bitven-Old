@@ -1,0 +1,25 @@
+<template name="post">
+	<br>
+	{{#each post}}
+		<div class="ui container stackable">
+			<div class="ui segment">
+				<div class="ui column">
+					<h1 class="header" id="titlePost"></h1>
+				</div>
+
+				<div class="ui divider"></div>
+
+				<div class="ui column">
+					<a href="{{post.short_URL}}"><h4>Fuente original</h4></a>
+				</div>
+
+				<div class="ui divider"></div>
+
+				<div class="ui column">
+					<img src="{{post.featured_image}}">
+					<p id="content"></p>
+				</div>
+			</div>
+		</div>
+	{{/each}}	
+</template>
