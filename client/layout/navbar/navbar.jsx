@@ -23,5 +23,9 @@ Template.navbar.helpers({
 
 	blockchain: function(){
 		return Session.get("blockchain");
+	},
+
+	argenBTC: function(){
+		return Session.get("argenBTC");
 	}
 });

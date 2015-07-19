@@ -1,15 +1,17 @@
 <template name="noticias">
 	<div class="ui container stackable">
 		<h1 class="header center">Noticias Bitcoin</h1>
-		<div class="ui styled accordion">
+		<div class="ui cards">
 			{{#each postWP}}
-				<div class="title active">
-					<a href="{{pathFor 'post'}}"><div id="title">{{post.title}}</div></a>
-					<input type="text" id="titleValue" hidden value="{{post.title}}">				
-				</div>
-				<div class="content active">
-					<p style="display: block ! important;" class="transition visible" id="excerpt"></p>
-					<input type="text" id="excerptValue" hidden value="{{post.excerpt}}">
+				<div class="ui card fluid">
+				  <div class="content">
+				    <a class="header">{{post.title}}</a>
+				  </div>
+				  <div class="extra content">
+				    <a href="{{pathFor 'post'}}">
+				      Ver noticia
+				    </a>
+				  </div>
 				</div>
 			{{/each}}
 		</div>

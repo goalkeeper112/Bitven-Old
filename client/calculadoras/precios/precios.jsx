@@ -255,13 +255,14 @@ Template.precios.helpers({
 		}
 	},
 
-	coinbaseConvert: function(){
+	btcEConvert: function(){
 		var monto 	 = parseFloat(Session.get("monto")),
 			montoBTC = parseFloat(Session.get("montoBTC"));
 
 		if(Session.get("monto") != undefined || Session.get("monto") != null){
 			if(monto >= 1){
-				return "Precio Aun no disponible"
+				var valor = monto / Session.get("btcE").btc_usd.avg;
+				return valor.toFixed(8);
 			}else{
 				return 0;
 			}
@@ -269,20 +270,22 @@ Template.precios.helpers({
 
 		if(Session.get("montoBTC") != undefined || Session.get("montoBTC") != null){
 			if(montoBTC >= 0.000000009){
-				return "Precio Aun no disponible"
+				var valor = montoBTC * Session.get("btcE").btc_usd.avg;
+				return valor.toFixed(2);
 			}else{
 				return 0;
 			}
 		}
 	},
 
-	satoshiTangoConvert: function(){
+	argenBTCConvert: function(){
 		var monto 	 = parseFloat(Session.get("monto")),
 			montoBTC = parseFloat(Session.get("montoBTC"));
 
 		if(Session.get("monto") != undefined || Session.get("monto") != null){
 			if(monto >= 1){
-				return "Precio Aun no disponible"
+				var valor = monto / parseInt(Session.get("argenBTC").btc_venta);
+				return valor.toFixed(8);
 			}else{
 				return 0;
 			}
@@ -290,20 +293,22 @@ Template.precios.helpers({
 
 		if(Session.get("montoBTC") != undefined || Session.get("montoBTC") != null){
 			if(montoBTC >= 0.000000009){
-				return "Precio Aun no disponible"
+				var valor = montoBTC * parseInt(Session.get("argenBTC").btc_venta);
+				return valor.toFixed(2);
 			}else{
 				return 0;
 			}
 		}
 	},
 
-	localbitcoinARSConvert: function(){
+	casaCambioConvert: function(){
 		var monto 	 = parseFloat(Session.get("monto")),
 			montoBTC = parseFloat(Session.get("montoBTC"));
 
 		if(Session.get("monto") != undefined || Session.get("monto") != null){
 			if(monto >= 1){
-				return "Precio Aun no disponible"
+				var valor = monto / Session.get("casaCambio").ask;
+				return valor.toFixed(8); 
 			}else{
 				return 0;
 			}
@@ -311,7 +316,8 @@ Template.precios.helpers({
 
 		if(Session.get("montoBTC") != undefined || Session.get("montoBTC") != null){
 			if(montoBTC >= 0.000000009){
-				return "Precio Aun no disponible"
+				var valor = montoBTC * Session.get("casaCambio").ask;
+				return valor.toFixed(2); 
 			}else{
 				return 0;
 			}
@@ -324,7 +330,10 @@ Template.precios.helpers({
 
 		if(Session.get("monto") != undefined || Session.get("monto") != null){
 			if(monto >= 1){
-				return "Precio Aun no disponible"
+				var implicitoARS = Session.get("bitfinex").bid * Session.get("ARS")[1].value_avg;
+				var valor = monto / implicitoARS;
+
+				return valor.toFixed(8)
 			}else{
 				return 0;
 			}
@@ -332,7 +341,10 @@ Template.precios.helpers({
 
 		if(Session.get("montoBTC") != undefined || Session.get("montoBTC") != null){
 			if(montoBTC >= 0.000000009){
-				return "Precio Aun no disponible"
+				var implicitoARS = Session.get("bitfinex").bid * Session.get("ARS")[1].value_avg;
+				var valor = montoBTC * implicitoARS;
+
+				return valor.toFixed(2)
 			}else{
 				return 0;
 			}

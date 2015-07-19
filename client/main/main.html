@@ -9,7 +9,7 @@
 				
 				<h2>Convencidos por la educación Bitcoin</h2>
 				
-				<div class="ui row huge segment">
+				<div class="ui row huge segment fluid">
 					<iframe width="560" height="315" class="ui container" src="https://www.youtube.com/embed/ceef71b0zSo" frameborder="0" allowfullscreen></iframe>
 				</div>
 			</div>
@@ -29,17 +29,37 @@
 				{{> calculadoras}}
 			</div>
 			
-			<div class="column">
-				<div class="ui vertical rectangle ad" style="background-color: black;">
-					<img src="" alt="">
+			<div class="column" onclick="$('.ui.modal').modal('show');">
+				{{>volanteModal}}
+				<div class="ui half page ad fluid" style="">
+					<img src="img/bannerModal.jpg" alt="">
 				</div>
 			</div>
 		</div>
 
 		<div class="ui divider"></div>
 
-		<div class="ui large leadboard ad" style="background-color: black;">
-			<img src="http://cabincrew.careerintravel.co.uk/wp-content/uploads/2014/11/banneradtemplate.png" alt="">
+		<div class="ui vertical stripe quote segment">
+		    <div class="ui equal width stackable internally celled grid">
+		      <div class="center aligned row">
+		        <div class="column">
+		          <h3>Características del Bitcoin</h3>
+		        	<p>
+						<div class="ui row huge segment fluid">
+				          	<iframe width="560" height="315" src="https://www.youtube.com/embed/zJNSmFxYqiQ" frameborder="0" allowfullscreen></iframe>
+						</div>
+			        </p>
+		        </div>
+		        <div class="column">
+		          <h3>¿Para qué sirven los bitcoins?</h3>
+		          	<p>
+						<div class="ui row huge segment fluid">
+			          		<iframe width="560" height="315" src="https://www.youtube.com/embed/4A7Pgn62G2E" frameborder="0" allowfullscreen></iframe>
+						</div>
+		          	</p>
+		        </div>
+		      </div>
+		    </div>
 		</div>
 	</div>
 </template>

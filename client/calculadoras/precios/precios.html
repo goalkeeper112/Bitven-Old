@@ -1,5 +1,5 @@
 <template name="precios">
-	<div class="ui top attached tabular menu">
+	<div class="ui top attached tabular menu fluid">
 		{{#if VEF}}
 	  		<div class="ui active item button" id="VEF">VEF</div>
 	  	{{else}}
@@ -27,8 +27,11 @@
 
 	<div class="ui bottom attached active tab segment">
 	  <p>
-  		<div class="ui input">
-  			<input id="monto" placeholder="FIAT a BTC" type="number">
+  		<div class="ui labeled input">
+  			<div class="ui label">
+  				<i class="dollar icon"></i>
+  			</div>
+  			<input class="ui fluid" id="monto" placeholder="FIAT a BTC" type="number">
   		</div>
 	  </p>
 	  <p>
@@ -80,19 +83,19 @@
 					<td><p>{{localbitcoinUSDConvert}}</p></td>
 				</tr>
 				<tr>
-					<td>Coinbase</td>
-					<td><p>{{coinbaseConvert}}</p></td>
+					<td>BTC-E</td>
+					<td><p>{{btcEConvert}}</p></td>
 				</tr>
 				{{/if}}
 
 				{{#if ARS}}
 				<tr>
-					<td>SatoshiTango</td>
-					<td><p>{{satoshiTangoConvert}}</p></td>
+					<td>ArgenBTC</td>
+					<td><p>{{argenBTCConvert}}</p></td>
 				</tr>
 				<tr>
-					<td>Localbitcoin</td>
-					<td><p>{{localbitcoinARSConvert}}</p></td>
+					<td>Casa de cambio</td>
+					<td><p>{{casaCambioConvert}}</p></td>
 				</tr>
 				<tr>
 					<td>Implícito</td>
@@ -103,8 +106,11 @@
 		</table>
 	  </p>
 	  <p>
-  		<div class="ui input">
-  			<input id="montoBTC" placeholder="BTC a FIAT" type="number" step="0.000000001">
+  		<div class="ui labeled input">
+  			<div class="ui label">
+  				<i class="bitcoin icon"></i>
+  			</div>
+  			<input class="ui fluid" id="montoBTC" placeholder="BTC a FIAT" type="number" step="0.000000001">
   		</div>
 	  </p>
 	</div>
