@@ -1,0 +1,11 @@
+#navbar {
+	background-color: #DFDED4;
+}
+
+.ui.menu .item, .ui.menu .item > a:not(.ui){
+	color: #432F21;
+}
+
+.ui.menu .item:hover{
+	color: #D6D3C4;
+}

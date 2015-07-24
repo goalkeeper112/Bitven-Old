@@ -1,15 +1,13 @@
 <template name="main">
-	<div class="pusher">
-		<div class="ui inverted vertical masthead center aligned segment">
+	<div class="pusher" id="videoBox">
+		<div class="ui vertical masthead center aligned segment">
 
 			<div class="ui text container">
-				<h1 class="ui inverted header">
-					Bitven.org
+				<h1 class="ui inverted header" id="bitvenHeader">
+					Educando sobre Bitcoin
 				</h1>
 				
-				<h2>Convencidos por la educación Bitcoin</h2>
-				
-				<div class="ui row huge segment fluid">
+				<div class="ui row huge segment fluid" id="boxSegment">
 					<iframe width="560" height="315" class="ui container" src="https://www.youtube.com/embed/ceef71b0zSo" frameborder="0" allowfullscreen></iframe>
 				</div>
 			</div>
@@ -20,7 +18,7 @@
 
 		<div class="ui divider"></div>
 
-		<div class="ui three column stackable grid">
+		<div class="ui two column stackable grid">
 			<div class="column">
 				{{> noticias}}
 			</div>
@@ -28,16 +26,9 @@
 			<div class="column">
 				{{> calculadoras}}
 			</div>
-			
-			<div class="column" onclick="$('.ui.modal').modal('show');">
-				{{>volanteModal}}
-				<div class="ui half page ad fluid" style="">
-					<img src="img/bannerModal.jpg" alt="">
-				</div>
-			</div>
 		</div>
 
-		<div class="ui divider"></div>
+		<!--<div class="ui divider"></div>
 
 		<div class="ui vertical stripe quote segment">
 		    <div class="ui equal width stackable internally celled grid">
@@ -60,6 +51,6 @@
 		        </div>
 		      </div>
 		    </div>
-		</div>
+		</div>-->
 	</div>
 </template>
