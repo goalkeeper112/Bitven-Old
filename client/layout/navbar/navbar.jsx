@@ -4,13 +4,27 @@ Template.navbar.events({
 	}
 });
 
+var valor;
+
 Template.navbar.helpers({
-	surbitcoin: function(){
-		return Session.get("surbitcoin");
+	VEFrate: function(){
+		var dolartoday = EJSON.parse(Session.get("dolart").content);
+		var referencia = dolartoday.USD.dolartoday * parseFloat(Session.get("bitfinex").ask);
+		valor = Session.get("surbitcoin").sell + Session.get("pricesDivisas").LocalBitcoins_coupons.XVE + referencia;
+		Session.set("VEFrate", valor / 3);
+		return Session.get("VEFrate").toFixed(2);
 	},
 
-	bitfinex:  function(){
-		return Session.get("bitfinex");
+	USDrate:  function(){
+		valor = parseFloat(Session.get("bitfinex").ask) + parseFloat(Session.get("pricesDivisas").LocalBitcoins_coupons.USD) + Session.get("btcE").btc_usd.avg;
+		Session.set("USDrate", valor / 3);
+		return Session.get("USDrate").toFixed(2);
+	},
+
+	ARSrate: function(){
+		valor = Session.get("pricesDivisas").BTC.ARS + parseFloat(Session.get("satoshitango").compra.arsbtcround) + parseFloat(Session.get("argenBTC").btc_venta);
+		Session.set("ARSrate", valor / 3);
+		return Session.get("ARSrate").toFixed(2);
 	},
 
 	foxbit: function(){
@@ -23,9 +37,5 @@ Template.navbar.helpers({
 
 	blockchain: function(){
 		return Session.get("blockchain");
-	},
-
-	argenBTC: function(){
-		return Session.get("argenBTC");
 	}
 });

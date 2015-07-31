@@ -24,3 +24,5 @@ summernote:summernote
 matteodem:server-session
 useraccounts:semantic-ui
 accounts-ui
+sacha:spin
+multiply:iron-router-progress

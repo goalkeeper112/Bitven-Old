@@ -5,7 +5,7 @@
 			{{#each postWP}}
 				<div class="ui card fluid" style="background-color: #DFDED4; color: #432F21;">
 				  <div class="content">
-				    <a class="header">{{post.title}}</a>
+				    <a class="header" href="{{pathFor 'post'}}">{{post.title}}</a>
 				  </div>
 				  <div class="extra content">
 				    <a href="{{pathFor 'post'}}">

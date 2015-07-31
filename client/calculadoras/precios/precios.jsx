@@ -1,4 +1,6 @@
 Session.setDefault("divisa", "VEF");
+Session.setDefault("monto", null);
+Session.setDefault("montoBTC", null);
 
 Template.precios.rendered = function () {
 	$("#monto").bind("change paste keyup", function() {
@@ -78,6 +80,10 @@ Template.precios.helpers({
 			}else{
 				return 0;
 			}
+		}else if(!Session.get("surbitcoin")){
+			return "Cargando...";
+		}else{
+			return 0;
 		} 
 
 		if(Session.get("montoBTC") != undefined || Session.get("montoBTC") != null){
@@ -87,6 +93,10 @@ Template.precios.helpers({
 			}else{
 				return 0;
 			}
+		}else if(!Session.get("surbitcoin")){
+			return "Cargando...";
+		}else{
+			return 0;
 		}
 	},
 
@@ -102,6 +112,10 @@ Template.precios.helpers({
 			}else{
 				return 0;
 			}
+		}else if(!Session.get("pricesDivisas")){
+			return "Cargando...";
+		}else{
+			return 0;
 		} 
 
 		if(Session.get("montoBTC") != undefined || Session.get("montoBTC") != null){
@@ -111,7 +125,11 @@ Template.precios.helpers({
 			}else{
 				return 0;
 			}
-		}
+		}else if(!Session.get("pricesDivisas")){
+			return "Cargando...";
+		}else{
+			return 0;
+		} 
 	},
 
 	implicitoConvert: function(){
@@ -129,7 +147,11 @@ Template.precios.helpers({
 			}else{
 				return 0;
 			}
-		} 
+		}else if(!Session.get("dolart") && !Session.get("bitfinex")){
+			return "Cargando...";
+		}else{
+			return 0;
+		}  
 
 		if(Session.get("montoBTC") != undefined || Session.get("montoBTC") != null){
 			if(montoBTC >= 0.000000009){
@@ -141,7 +163,11 @@ Template.precios.helpers({
 			}else{
 				return 0;
 			}
-		}
+		}else if(!Session.get("dolart") && !Session.get("bitfinex")){
+			return "Cargando...";
+		}else{
+			return 0;
+		} 
 	},
 
 	foxbitConvert: function(){
@@ -155,7 +181,11 @@ Template.precios.helpers({
 			}else{
 				return 0;
 			}
-		} 
+		}else if(!Session.get("foxbit")){
+			return "Cargando...";
+		}else{
+			return 0;
+		}  
 
 		if(Session.get("montoBTC") != undefined || Session.get("montoBTC") != null){
 			if(montoBTC >= 0.000000009){
@@ -164,7 +194,11 @@ Template.precios.helpers({
 			}else{
 				return 0;
 			}
-		}
+		}else if(!Session.get("foxbit")){
+			return "Cargando...";
+		}else{
+			return 0;
+		} 
 	},
 
 	localbitcoinBRLConvert: function(){
@@ -220,7 +254,11 @@ Template.precios.helpers({
 			}else{
 				return 0;
 			}
-		} 
+		}else if(!Session.get("bitfinex")){
+			return "Cargando...";
+		}else{
+			return 0;
+		}  
 
 		if(Session.get("montoBTC") != undefined || Session.get("montoBTC") != null){
 			if(montoBTC >= 0.000000009){
@@ -229,7 +267,11 @@ Template.precios.helpers({
 			}else{
 				return 0;
 			}
-		}
+		}else if(!Session.get("bitfinex")){
+			return "Cargando...";
+		}else{
+			return 0;
+		} 
 	},
 
 	localbitcoinUSDConvert: function(){
@@ -238,21 +280,29 @@ Template.precios.helpers({
 
 		if(Session.get("monto") != undefined || Session.get("monto") != null){
 			if(monto >= 1){
-				var valor = monto / parseInt(Session.get("pricesDivisas").LocalBitcoins_coupons.USD);
+				var valor = monto / parseFloat(Session.get("pricesDivisas").LocalBitcoins_coupons.USD);
 				return valor.toFixed(8);
 			}else{
 				return 0;
 			}
-		} 
+		}else if(!Session.get("pricesDivisas")){
+			return "Cargando...";
+		}else{
+			return 0;
+		}  
 
 		if(Session.get("montoBTC") != undefined || Session.get("montoBTC") != null){
 			if(montoBTC >= 0.000000009){
-				var valor = monto * parseInt(Session.get("pricesDivisas").LocalBitcoins_coupons.USD);
+				var valor = monto * parseFloat(Session.get("pricesDivisas").LocalBitcoins_coupons.USD);
 				return valor.toFixed(2);
 			}else{
 				return 0;
 			}
-		}
+		}else if(!Session.get("pricesDivisas")){
+			return "Cargando...";
+		}else{
+			return 0;
+		} 
 	},
 
 	btcEConvert: function(){
@@ -266,7 +316,11 @@ Template.precios.helpers({
 			}else{
 				return 0;
 			}
-		} 
+		}else if(!Session.get("btcE")){
+			return "Cargando...";
+		}else{
+			return 0;
+		}  
 
 		if(Session.get("montoBTC") != undefined || Session.get("montoBTC") != null){
 			if(montoBTC >= 0.000000009){
@@ -275,7 +329,11 @@ Template.precios.helpers({
 			}else{
 				return 0;
 			}
-		}
+		}else if(!Session.get("btcE")){
+			return "Cargando...";
+		}else{
+			return 0;
+		} 
 	},
 
 	argenBTCConvert: function(){
@@ -284,70 +342,92 @@ Template.precios.helpers({
 
 		if(Session.get("monto") != undefined || Session.get("monto") != null){
 			if(monto >= 1){
-				var valor = monto / parseInt(Session.get("argenBTC").btc_venta);
+				var valor = monto / parseFloat(Session.get("argenBTC").btc_venta);
 				return valor.toFixed(8);
 			}else{
 				return 0;
 			}
-		} 
+		}else if(!Session.get("argenBTC")){
+			return "Cargando...";
+		}else{
+			return 0;
+		}  
 
 		if(Session.get("montoBTC") != undefined || Session.get("montoBTC") != null){
 			if(montoBTC >= 0.000000009){
-				var valor = montoBTC * parseInt(Session.get("argenBTC").btc_venta);
+				var valor = montoBTC * parseFloat(Session.get("argenBTC").btc_venta);
 				return valor.toFixed(2);
 			}else{
 				return 0;
 			}
-		}
+		}else if(!Session.get("argenBTC")){
+			return "Cargando...";
+		}else{
+			return 0;
+		} 
 	},
 
-	casaCambioConvert: function(){
+	satoshiTangoConvert: function(){
 		var monto 	 = parseFloat(Session.get("monto")),
 			montoBTC = parseFloat(Session.get("montoBTC"));
 
 		if(Session.get("monto") != undefined || Session.get("monto") != null){
 			if(monto >= 1){
-				var valor = monto / Session.get("casaCambio").ask;
+				var valor = monto / parseFloat(Session.get("satoshitango").compra.arsbtcround);
 				return valor.toFixed(8); 
 			}else{
 				return 0;
 			}
-		} 
+		}else if(!Session.get("satoshitango")){
+			return "Cargando...";
+		}else{
+			return 0;
+		}  
 
 		if(Session.get("montoBTC") != undefined || Session.get("montoBTC") != null){
 			if(montoBTC >= 0.000000009){
-				var valor = montoBTC * Session.get("casaCambio").ask;
+				var valor = montoBTC * parseFloat(Session.get("satoshitango").compra.arsbtcround);
 				return valor.toFixed(2); 
 			}else{
 				return 0;
 			}
-		}
+		}else if(!Session.get("satoshitango")){
+			return "Cargando...";
+		}else{
+			return 0;
+		} 
 	},
 
-	implicitoARSonvert: function(){
+	implicitoARSConvert: function(){
 		var monto 	 = parseFloat(Session.get("monto")),
 			montoBTC = parseFloat(Session.get("montoBTC"));
 
 		if(Session.get("monto") != undefined || Session.get("monto") != null){
 			if(monto >= 1){
-				var implicitoARS = Session.get("bitfinex").bid * Session.get("ARS")[1].value_avg;
-				var valor = monto / implicitoARS;
+				var valor = monto / Session.get("pricesDivisas").BTC.ARS;
 
 				return valor.toFixed(8)
 			}else{
 				return 0;
 			}
-		} 
+		}else if(!Session.get("pricesDivisas")){
+			return "Cargando...";
+		}else{
+			return 0;
+		}  
 
 		if(Session.get("montoBTC") != undefined || Session.get("montoBTC") != null){
 			if(montoBTC >= 0.000000009){
-				var implicitoARS = Session.get("bitfinex").bid * Session.get("ARS")[1].value_avg;
-				var valor = montoBTC * implicitoARS;
+				var valor = montoBTC * Session.get("pricesDivisas").BTC.ARS;
 
 				return valor.toFixed(2)
 			}else{
 				return 0;
 			}
-		}
+		}else if(!Session.get("pricesDivisas")){
+			return "Cargando...";
+		}else{
+			return 0;
+		} 
 	}
 });

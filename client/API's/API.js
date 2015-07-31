@@ -31,11 +31,11 @@ setInterval(function(){
 }, 5000);
 
 
-Meteor.call("httpAPI", "https://casadecambiobtc.com/api/quotations/BTCARS", "casaCAmbio", function(err, data){
+Meteor.call("httpAPI", "https://satoshitango.com/exchangerate.php", "satoshitango", function(err, data){
 	if(err){
 		return console.log(err);
 	}else{
-		return Session.set("casaCambio", EJSON.parse(data));
+		return Session.set("satoshitango", EJSON.parse(data));
 	}
 });
 
